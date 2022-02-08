@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 
 export default function NavbarComponent() {
     return <div>
-        <Navbar expand="lg">
+        <Navbar expand="lg" sticky >
             <Navbar.Brand><Link to="/"><span>Rehoming</span></Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

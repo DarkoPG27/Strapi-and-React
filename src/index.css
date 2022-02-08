@@ -2,17 +2,73 @@
 
 *{
   font-family: "Poppins";
+  
 }
+
 
 body{
   margin: 0px 30px;
   color: #333;
+  
 }
 h1,h2,h3,h4{
   font-weight: 500;
 }
 
+.home{
+ width: 100%;
+ height: 100vh;
+ background-image: url("https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80"); 
+ background-position:bottom;
+ background-repeat: no-repeat;
+ background-size: cover;
+ box-shadow: inset 50px 50px 1000px rgba(0, 0, 0,0.9);
+}
+
+.home .content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top:10%;
+  
+}
+
+ .home .title h1{
+  font-size: 5em;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-shadow: 1.5px 1.5px rgb(116, 113, 113);
+  
+}
+
+.home .subtitle p{
+font-size: 2em;
+padding-bottom: 120px;
+text-shadow: 0.5px 0.5px rgb(70, 69, 69);
+}
+
+.home .bottom h3{
+  font-size: 3em;
+}
+
+.home button{
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+  background-color: rgba(194, 54, 54, 0.5);
+  color:white;
+  font-size: 2em;
+}
+
+.home button:hover{
+  background-color: #333;
+}
+
 .navbar{
+  /* z-index: 1; */
   padding: 20px;
   display: flex;
   align-items: center;
@@ -41,7 +97,12 @@ h1,h2,h3,h4{
  color:powderblue
 }
 
- .all-pets{
+.messages{
+display: flex;
+justify-content: center;
+}
+
+.all-pets{
    margin: 0 auto;
    max-width: 1000px;
    display: grid;
@@ -52,20 +113,25 @@ h1,h2,h3,h4{
 
 .card{
 margin: 30px auto;
-background: red;
 position: relative;
-box-shadow: 0 0 3px rgba(0,0,0,0.2);
+border: none !important;
 }
 
 .card-image{
   width: 100%;
   height: 300px;
+  border-radius: 50% !important;
   display:block;
+  box-shadow: 5px 2px 3px rgba(0,0,0,0.2);
 }
 
 .card a{
   color:rgb(190, 91, 91);
   text-decoration: none;
+}
+
+.card:hover{
+  transform: scale(1.03);
 }
 
 .all-pets a:hover{
@@ -74,14 +140,13 @@ box-shadow: 0 0 3px rgba(0,0,0,0.2);
 }
 
 .card .card-category{
-
-text-decoration: none !important;
-color: white !important;
- position: absolute;
-  
-  background:rgb(82, 69, 69);
+  text-decoration: none !important;
+  color: white !important;
+  position: absolute;
+  background:rgb(190, 91, 91);
   font-size: 2rem;
   width: 100%; 
+  top:-60px;
   height: 50px;
   text-align: center;
   color: white;
@@ -116,14 +181,13 @@ color: white !important;
 }
 
 .site-header{
-  height: 150px;
+  height: 200px;
 }
 
 .site-header .categories{
   text-align: right;
-  padding-top: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: baseline;
 }
 
@@ -133,13 +197,51 @@ margin:15px;
 }
 
 .site-header button{
-  border-radius: 20%;
+  border: none;
+  font-size: 0.9rem;
+  width: 200px;
   background-color: rgb(190, 91, 91);
   color: white;
+  text-transform: uppercase;
+}
+
+.site-header button:hover{
+ color: powderblue;
+ transform: scale(1.01);
+}
+
+.card-category button{
+  border: none;
+  font-size: 0.9rem;
+  width: 200px;
+  background-color: rgb(190, 91, 91);
+  color: white;
+  text-transform: uppercase;
+}
+
+.pet-name{
+  font-family:'Gill Sans',  sans-serif;
+  font-size: 4em;
 }
 
 
+.single_page {
+  margin: 0 auto;
+  height: 100vh;
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.single_page h1{
+  margin-bottom: 20px;
+}
 
 
+  
+  
+  
 
 
