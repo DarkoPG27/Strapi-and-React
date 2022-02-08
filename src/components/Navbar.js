@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 
-export default function NavbarC() {
+export default function NavbarComponent() {
     return <div>
         <Navbar expand="lg">
-            <Navbar.Brand href="/">Rehoming</Navbar.Brand>
+            <Navbar.Brand><Link to="/"><span>Rehoming</span></Link>
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
 
