@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 //components
 import NavbarComponent from './components/Navbar';
-
+import Login from './components/Login';
+import Register from './components/Register';
 
 //pages
 import Home from './pages/Home';
@@ -27,6 +28,8 @@ function App() {
             <Route path="/pets"><Pets /></Route>
             <Route path="/details/:id"><PetDetails /></Route>
             <Route path="/category/:id"><Category /></Route>
+            <Route path="/login"><Login /></Route>
+            <Route path="/registration"><Register /></Route>
           </Switch>
         </div>
       </div>

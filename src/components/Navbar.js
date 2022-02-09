@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
+import Nav from 'react-bootstrap/Nav';
+
 
 export default function NavbarComponent() {
+
     return <div>
         <Navbar expand="lg" sticky >
             <Navbar.Brand><Link to="/"><span>Rehoming</span></Link>
@@ -17,10 +19,11 @@ export default function NavbarComponent() {
                     <Link to="/about">About Us</Link>
                     <Link to="/contact">Contact</Link> </Nav>
                 <Nav >
+                    <Link to="/admin">Admin Page</Link>
                     <Link to="/registration">Registration</Link>
                     <Link to="/Login">Login</Link>
                 </Nav>
-                {/* <Link to="/admin">Admin</Link> */}
+
             </Navbar.Collapse>
         </Navbar>
     </div>;

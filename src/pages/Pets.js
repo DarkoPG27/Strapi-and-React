@@ -6,7 +6,7 @@ import SiteHeader from '../components/SiteHeader';
 
 
 export default function Pets() {
-    const { loading, error, data } = useFetch('http://localhost:1337/pets')
+    const { loading, error, data } = useFetch('http://localhost:1337/pets');
 
     if (loading) return <p className='messages'>Loading...</p>
     if (error) return <p className='messages'>Error fetching data :(</p>
