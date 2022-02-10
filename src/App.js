@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { AuthContextProvider } from "./contexts/auth";
 
 //components
 import NavbarComponent from './components/Navbar';
@@ -13,32 +14,36 @@ import Pets from './pages/Pets';
 import PetDetails from './pages/PetDetails';
 import Category from './pages/Category';
 
+import { PrivateRoute } from "./PrivateRoute";
+
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <NavbarComponent />
+    <AuthContextProvider>
+      <Router>
+        <div className="App">
+          <NavbarComponent />
 
-        <div className="content">
-          <Switch>
-            <Route exact path="/"><Home /></Route>
-            <Route path="/about"><About /></Route>
-            <Route path="/contact"><Contact /></Route>
-            <Route path="/pets"><Pets /></Route>
-            <Route path="/details/:id"><PetDetails /></Route>
-            <Route path="/category/:id"><Category /></Route>
-            <Route path="/login"><Login /></Route>
-            <Route path="/registration"><Register /></Route>
+          <div className="content">
+            <Switch>
+              <Route exact path="/"><Home /></Route>
+              <Route path="/about"><About /></Route>
+              <Route path="/contact"><Contact /></Route>
+              <Route path="/pets"><Pets /></Route>
+              <Route path="/details/:id"><PetDetails /></Route>
+              <Route path="/category/:id"><Category /></Route>
+              <Route path="/login"><Login /></Route>
+              <Route path="/registration"><Register /></Route>
+              <PrivateRoute path="/admin" component={Dashboard} />
+              {/* cijeli folder za admin kopiran */}
+              {/*   <Route path="/admin"><Admin /></Route> */}
 
-            {/* cijeli folder za admin kopiran */}
-            {/*   <Route path="/admin"><Admin /></Route> */}
 
-
-          </Switch>
+            </Switch>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </AuthContextProvider>
   );
 }
 
