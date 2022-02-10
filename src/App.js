@@ -30,6 +30,11 @@ function App() {
             <Route path="/category/:id"><Category /></Route>
             <Route path="/login"><Login /></Route>
             <Route path="/registration"><Register /></Route>
+
+            {/* cijeli folder za admin kopiran */}
+            {/*   <Route path="/admin"><Admin /></Route> */}
+
+
           </Switch>
         </div>
       </div>
