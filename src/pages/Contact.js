@@ -11,7 +11,7 @@ export default function Contact() {
     console.log(data.contact_content)
     return (
 
-        <div className='single_page'>
+        <div className=''>
             <h1>Contact Page</h1>
             <p>{data.contact_content}</p>
         </div>

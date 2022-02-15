@@ -153,27 +153,7 @@ border: none !important;
   color: white;
 }
 
-.pet-details{
-  position: relative;
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
-}
 
-.pet-details{
-  font-size: 1.2em;
-  margin:10px auto;
-  width: 100%;
-  max-width: 1200px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.pet-details img{
-  width: 50%;
-  height: 500px;
-}
 
 .site-header span{
   font-size: 1.5em;
@@ -220,24 +200,55 @@ margin:15px;
   text-transform: uppercase;
 }
 
+
+/* PETDETAILS PAGE */
+/* .item{
+   height:400px;
+  
+  } */
+
+.pet-details{
+  font-size: 1.2em;
+  margin:10px auto;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 .pet-name{
   font-family:'Gill Sans',  sans-serif;
   font-size: 4em;
+  width: 100%;
+  background-color: rgb(236, 206, 206); 
+}
+
+.gallery{
+  background-color: blue;
 }
 
 
-.single_page {
-  margin: 0 auto;
-  height: 100vh;
-  max-width: 1000px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.about-header{
+  width: 100%;
+  height: 200px;
+  background-color: #4F525C;
 }
 
-.single_page h1{
-  margin-bottom: 20px;
+.about-header h1{
+  font-size: 2.5em;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color:#FFFFFF;
+  text-align: center;
+  padding: 50px;
+}
+
+.about-paper{
+  width: 100%;
+  height: fit-content;
+  background-color: #FFFFFF;
+  position: relative;
+  top: -80px;
+  border-radius: 20px;
 }
 
 

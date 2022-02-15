@@ -78,7 +78,6 @@ export default function SignIn() {
                 let { jwt } = result.data;
                 console.log(jwt);
                 setTokens(jwt);
-                <Redirect to="/"></Redirect>
             }
             )
 
