@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { AuthContext } from "./contexts/auth";
 
-export const PrivateRoute = ({ component: Component, ...rest }) => {
+export const PrivateRoute = ({ children, ...rest }) => {
     console.log(rest)
     const { authTokens } = useContext(AuthContext);
     console.log(authTokens, 'context')
@@ -11,8 +11,8 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
             {...rest}
             render={(props) => {
                 console.log(props, 'props');
-                return authTokens ? <Component /> : <Redirect to="/login" />;
+                return authTokens ? children : <Redirect to="/login" />
             }}
         />
     );
-};
+};   //DODATI TOKEN SAMO ZA ADMINA

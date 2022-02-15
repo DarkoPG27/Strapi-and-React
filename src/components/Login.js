@@ -13,7 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
-/* import { AuthContext } from "../contexts/auth"; */
+import { AuthContext } from "../contexts/auth";
 import { Redirect } from "react-router-dom";
 
 function Copyright() {
@@ -23,8 +23,7 @@ function Copyright() {
             <Link color="inherit" href="https://material-ui.com/">
                 Rehoming DarkoDevLab Project
             </Link>{" "}
-            {new Date().getFullYear()}
-            {"."}
+            2022.
         </Typography>
     );
 }
@@ -50,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn() {
-    /* const { authTokens, setTokens } = useContext(AuthContext); */
+    const { authTokens, setTokens } = useContext(AuthContext);
     const [formFields, setFormFields] = useState({
         identifier: "",
         password: "",
@@ -71,16 +70,17 @@ export default function SignIn() {
             .then((result) => {
                 let { jwt } = result.data;
                 console.log(jwt);
-                /* setTokens(jwt); */
+                setTokens(jwt);
             })
             .catch((e) => {
                 console.log(e);
             });
     };
 
-    /*  if (authTokens) {
-         return <Redirect to="/"></Redirect>
-     } */
+    if (authTokens) {
+        return <Redirect to="/"></Redirect>
+    }
+
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />

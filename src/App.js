@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AuthContextProvider } from "./contexts/auth";
+import { PrivateRoute } from "./PrivateRoute";
 
 //components
 import NavbarComponent from './components/Navbar';
 import Login from './components/Login';
 import Register from './components/Register';
+import Dashboard from './components/admin/Dashboard';
 
 //pages
 import Home from './pages/Home';
@@ -14,7 +16,8 @@ import Pets from './pages/Pets';
 import PetDetails from './pages/PetDetails';
 import Category from './pages/Category';
 
-import { PrivateRoute } from "./PrivateRoute";
+
+
 
 
 function App() {
@@ -34,8 +37,9 @@ function App() {
               <Route path="/category/:id"><Category /></Route>
               <Route path="/login"><Login /></Route>
               <Route path="/registration"><Register /></Route>
-              <PrivateRoute path="/admin" component={Dashboard} />
-              {/* cijeli folder za admin kopiran */}
+
+              <PrivateRoute path="/admin" ><Dashboard /></PrivateRoute>
+
               {/*   <Route path="/admin"><Admin /></Route> */}
 
 
