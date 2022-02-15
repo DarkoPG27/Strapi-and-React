@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import Card from 'react-bootstrap/Card';
 import SiteHeader from '../components/SiteHeader';
+import Spinner from 'react-bootstrap/Spinner'
 
 
 export default function Category() {
@@ -11,7 +12,7 @@ export default function Category() {
     const { loading, error, data } = useFetch('http://localhost:1337/categories/' + id);
 
 
-    if (loading) return <p className='messages'>Loading...</p>
+    if (loading) return <Spinner animation="border" role="status"></Spinner>
     if (error) return <p className='messages'>Error fetching data :(</p>
 
     console.log(data)
