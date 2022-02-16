@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 *{
-  font-family: "Poppins";
-  
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 
@@ -227,6 +226,9 @@ margin:15px;
   background-color: blue;
 }
 
+.about-page{
+  background-color: #F5F6F5;
+}
 
 .about-header{
   width: 100%;
@@ -236,10 +238,9 @@ margin:15px;
 
 .about-header h1{
   font-size: 2.5em;
-  font-family:Georgia, 'Times New Roman', Times, serif;
   color:#FFFFFF;
   text-align: center;
-  padding: 50px;
+  padding: 40px;
 }
 
 .about-paper{
@@ -251,9 +252,84 @@ margin:15px;
   border-radius: 20px;
 }
 
+.about-paper h2{
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+  color:#455173;
+  letter-spacing: 2px;
+}
 
-  
-  
-  
+.about-paper p{
+  color: #757575;
+  padding: 0 50px;
+  word-spacing: 2px;
+  font-size: larger;
+  word-break: break-all;
+  font-weight: 0.1em;
+  padding-bottom: 50px;
+}
+
+.image-left{
+  height: 200px;
+  width: 200px ;
+  position: relative;
+  top:300px ;
+  transform: rotateZ(-10deg);
+  z-index: 10;
+  border: 10px solid #FFFFFF;
+  box-shadow:  5px 5px #c7c7c7;
+}
+
+.image-right{
+  height: 200px;
+  width: 200px ;
+  position: relative;
+  top:100px ;
+  right: 20px;
+  transform: rotateZ(10deg);
+  z-index: 10;
+  border: 10px solid #FFFFFF;
+  box-shadow:  0 0 5px 5px #c7c7c7;
+}
+
+.team{
+  display: flex;
+  justify-content: center;
+}
+
+.team  h2{
+  color:#4A4A4A;
+  padding: 20px;
+}
+
+.team  p{
+ text-align: center;
+  font-size: 1.3em;
+  color: rgba(0, 0, 0,0.5);
+  padding-bottom: 50px;
+}
+
+.team-details img{
+  width: 200px;
+  border: 5px solid white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-member-name,
+.team-member-position {
+ display: flex;
+ justify-content: center;
+}
+
+.team-member-name{
+  color: #CD310E;
+}
 
 
