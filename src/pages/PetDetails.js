@@ -8,6 +8,9 @@ import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { FaPaw } from 'react-icons/fa';
+
+
 
 export default function PetDetails() {
     const { id } = useParams();
@@ -20,12 +23,12 @@ export default function PetDetails() {
         <div className='pet-details'>
             <Container>
                 <Row>
-                    <Col md={6}><h1 className='pet-name'>{data.name}</h1></Col>
+                    <Col md={6}><h1 className='pet-name'><FaPaw /><span>{data.name}</span><FaPaw /></h1></Col>
                 </Row>
                 <Row>
                     <Col md={6}> {
                         data.galeryImages.length > 1 ?
-                            (<Carousel className="d-block w-100 ">
+                            (<Carousel className="d-block w-100 " >
 
                                 {data.galeryImages.map(i => {
                                     return <Carousel.Item key={i.hash} className="item" interval={3000}>

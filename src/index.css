@@ -4,67 +4,40 @@
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-
-body{
-  margin: 0px 30px;
-  color: #333;
-  
+/* Home Page */
+.home{
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80"); 
+   background-size: cover;
+   background-position: bottom;
+   text-shadow: 0 0.05rem 0.1rem rgba(0,0,0,0.6);
+   box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.6);
 }
+.cover-container{
+  max-width: 60vw;
+  margin:  20px;
+}
+.nav-link{
+  text-decoration: none;
+  padding: 0.25rem 0;
+  font-weight: 500;
+  color:rgba(255,255,255,0.7) !important;
+  margin-left:1rem;
+  border-bottom: 0.25rem solid transparent;
+}
+.nav-link:hover{
+  border-bottom-color: rgba(255,255,255,0.7);
+}
+.nav-link.active {
+  color: white;
+  border-bottom-color:white;
+}
+
 h1,h2,h3,h4{
   font-weight: 500;
 }
 
-.home{
- width: 100%;
- height: 100vh;
- background-image: url("https://images.unsplash.com/photo-1560807707-8cc77767d783?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80"); 
- background-position:bottom;
- background-repeat: no-repeat;
- background-size: cover;
- box-shadow: inset 50px 50px 1000px rgba(0, 0, 0,0.9);
-}
-
-.home .content{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding-top:10%;
-  
-}
-
- .home .title h1{
-  font-size: 5em;
-  font-weight: 900;
-  letter-spacing: 4px;
-  text-shadow: 1.5px 1.5px rgb(116, 113, 113);
-  
-}
-
-.home .subtitle p{
-font-size: 2em;
-padding-bottom: 120px;
-text-shadow: 0.5px 0.5px rgb(70, 69, 69);
-}
-
-.home .bottom h3{
-  font-size: 3em;
-}
-
-.home button{
-  width: 200px;
-  height: 50px;
-  border: none;
-  border-radius: 20px;
-  background: transparent;
-  background-color: rgba(194, 54, 54, 0.5);
-  color:white;
-  font-size: 2em;
-}
-
-.home button:hover{
-  background-color: #333;
-}
+/* NAVBAR */
 
 .navbar{
   /* z-index: 1; */
@@ -72,7 +45,7 @@ text-shadow: 0.5px 0.5px rgb(70, 69, 69);
   display: flex;
   align-items: center;
   margin:0 auto;
-  background-color: rgb(190, 91, 91);
+  background-color: rgb(255, 255, 255);
 }
 
 .navbar span{
@@ -89,12 +62,14 @@ text-shadow: 0.5px 0.5px rgb(70, 69, 69);
   padding: 6px;
   margin-left: 16px;
   font-size: 20px;
-  color: white;
+  color: #CA310E;
 }
 
 .navbar a:hover {
- color:powderblue
+ color:rgb(95, 140, 146)
 }
+
+/* NAVBAR */
 
 .messages{
 display: flex;
@@ -122,6 +97,7 @@ border: none !important;
   border-radius: 50% !important;
   display:block;
   box-shadow: 5px 2px 3px rgba(0,0,0,0.2);
+  object-fit: cover;
 }
 
 .card a{
@@ -211,7 +187,7 @@ margin:15px;
   margin:10px auto;
   width: 100%;
   max-width: 1000px;
-  padding: 20px;
+
   box-sizing: border-box;
 }
 
@@ -219,11 +195,11 @@ margin:15px;
   font-family:'Gill Sans',  sans-serif;
   font-size: 4em;
   width: 100%;
-  background-color: rgb(236, 206, 206); 
+  text-align: center;
 }
 
-.gallery{
-  background-color: blue;
+.pet-name span{
+  padding: 0 10%;
 }
 
 .about-page{

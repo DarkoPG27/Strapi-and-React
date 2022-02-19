@@ -14,29 +14,26 @@ export default function Pets() {
     if (error) return <p className='messages'>Error fetching data :(</p>
 
     return (
-        <>
-            <SiteHeader />
-            <div className='all-pets'>
+        <div className='all-pets'>
 
-                {data.map(pet => (
+            {data.map(pet => (
 
-                    <Card className='card' style={{ width: '18rem' }} key={pet.id}>
+                <Card className='card' style={{ width: '18rem' }} key={pet.id}>
 
-                        <Link className='card-category' to={`/details/${pet.id}`}>{pet.name}</Link>
-                        <Card.Img className='card-image' variant="top"
+                    <Link className='card-category' to={`/details/${pet.id}`}>{pet.name}</Link>
+                    <Card.Img className='card-image' variant="top"
 
-                            src={pet.image ?
-                                `http://localhost:1337${pet.image.formats.small.url}`
-                                : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREzZGhBntOhRgkol_FdruXML_tX07XjyLcaw&usqp=CAU'
-                            } />
+                        src={pet.image ?
+                            `http://localhost:1337${pet.image.formats.small.url}`
+                            : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREzZGhBntOhRgkol_FdruXML_tX07XjyLcaw&usqp=CAU'
+                        } />
 
-                        <Card.Body>
-                            <Card.Text >{pet.description.substring(0, 100)}...</Card.Text>
-                            <Link to={`/details/${pet.id}`}>Read more...</Link>
-                        </Card.Body>
-                    </Card>
-                ))}
-            </div>
-        </>
+                    <Card.Body>
+                        <Card.Text >{pet.description.substring(0, 100)}...</Card.Text>
+                        <Link to={`/details/${pet.id}`}>Read more...</Link>
+                    </Card.Body>
+                </Card>
+            ))}
+        </div>
     )
 }

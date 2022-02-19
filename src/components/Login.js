@@ -48,8 +48,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
 export default function SignIn() {
     const { authTokens, setTokens } = useContext(AuthContext);
+    const [username, setUsername] = useState("");
     const [formFields, setFormFields] = useState({
         identifier: "",
         password: "",
@@ -68,90 +70,95 @@ export default function SignIn() {
         axios
             .post("http://localhost:1337/auth/local", formFields)
             .then((result) => {
-                let { jwt } = result.data;
+
+                let { jwt, user } = result.data;
                 console.log(jwt);
+                console.log(user.username);
                 setTokens(jwt);
+                setUsername(user.username);
             })
             .catch((e) => {
                 console.log(e);
             });
     };
 
+    console.log(username)
     if (authTokens) {
         return <Redirect to="/"></Redirect>
-    }
+    } else {
+        return (
+            <Container component="main" maxWidth="xs"  >
+                <CssBaseline />
+                <div className={classes.paper}>
+                    <Avatar className={classes.avatar}>
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Sign in
+                    </Typography>
+                    <form className={classes.form} onSubmit={handleSubmit}>
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="identifier"
+                            label="User"
+                            name="identifier"
+                            value={formFields.identifier}
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Password"
+                            type="password"
+                            id="password"
+                            value={formFields.password}
+                            onChange={handleChange}
+                            inputProps={{
+                                autoComplete: "new-password",
+                                form: {
+                                    autoComplete: "off",
+                                },
+                            }}
+                        />
+                        <FormControlLabel
+                            control={<Checkbox value="remember" color="primary" />}
+                            label="Remember me"
+                        />
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                            style={{ backgroundColor: "rgb(190, 91, 91)" }}
+                        >
+                            Sign In
+                        </Button>
+                        <Grid container>
+                            <Grid item xs>
+                                <Link href="#" variant="body2">
+                                    Forgot password?
+                                </Link>
+                            </Grid>
+                            <Grid item>
+                                <Link href="#" variant="body2">
+                                    {"Don't have an account? Sign Up"}
+                                </Link>
+                            </Grid>
+                        </Grid>
+                    </form>
+                </div>
+                <Box mt={8}>
+                    <Copyright />
+                </Box>
+            </Container>
+        );
 
-    return (
-        <Container component="main" maxWidth="xs">
-            <CssBaseline />
-            <div className={classes.paper}>
-                <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                    Sign in
-                </Typography>
-                <form className={classes.form} onSubmit={handleSubmit}>
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="identifier"
-                        label="User"
-                        name="identifier"
-                        value={formFields.identifier}
-                        onChange={handleChange}
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        value={formFields.password}
-                        onChange={handleChange}
-                        inputProps={{
-                            autoComplete: "new-password",
-                            form: {
-                                autoComplete: "off",
-                            },
-                        }}
-                    />
-                    <FormControlLabel
-                        control={<Checkbox value="remember" color="primary" />}
-                        label="Remember me"
-                    />
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                        style={{ backgroundColor: "rgb(190, 91, 91)" }}
-                    >
-                        Sign In
-                    </Button>
-                    <Grid container>
-                        <Grid item xs>
-                            <Link href="#" variant="body2">
-                                Forgot password?
-                            </Link>
-                        </Grid>
-                        <Grid item>
-                            <Link href="#" variant="body2">
-                                {"Don't have an account? Sign Up"}
-                            </Link>
-                        </Grid>
-                    </Grid>
-                </form>
-            </div>
-            <Box mt={8}>
-                <Copyright />
-            </Box>
-        </Container>
-    );
+    }
 }

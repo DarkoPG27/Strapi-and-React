@@ -63,7 +63,6 @@ export default function SignIn() {
     const handleChange = (event) => {
         console.log(event.target.name, event.target.value)
         setFormFields({ ...formFields, [event.target.name]: event.target.value });
-
     };
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -73,22 +72,12 @@ export default function SignIn() {
             .then((result) => {
                 console.log('User profile', result.data.user);
                 console.log('User token', result.data.jwt);
-
-
-                let { jwt } = result.data;
-                console.log(jwt);
-                setTokens(jwt);
-            }
-            )
+            })
 
             .catch((e) => {
                 console.log(e);
             });
     };
-
-    /* if (authTokens) {
-        return 
-    } */
 
     return (
         <Container component="main" maxWidth="xs">

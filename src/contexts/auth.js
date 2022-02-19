@@ -10,13 +10,16 @@ export function useAuth() {
 export const AuthContextProvider = (props) => {
     const existingTokens = localStorage.getItem("tokens");
     const [authTokens, setAuthTokens] = useState(existingTokens);
+
     useEffect(() => {
         apiCall.defaults.headers.common["Authorization"] = `Bearer ${authTokens}`;
     }, [authTokens]);
+
     const setTokens = (token) => {
         localStorage.setItem("tokens", token);
         setAuthTokens(token);
     };
+
     return (
         <AuthContext.Provider value={{ authTokens, setTokens }}>
             {props.children}
