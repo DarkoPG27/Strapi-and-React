@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import { AuthContext } from "../contexts/auth";
 import { UserContext } from "../contexts/userContext";
+import { FaPaw } from 'react-icons/fa';
 
 
 
@@ -24,7 +25,7 @@ export default function Home() {
                         {/* <Nav className="nav nav-masthead justify-content-end"> */}
 
                         <h3 className="justify-content-start mb-0">
-                            Rehoming</h3>
+                            <FaPaw />  Rehoming</h3>
                         <Nav.Item>
                             <Link className="nav-link active" to="/">Home</Link>
                         </Nav.Item>

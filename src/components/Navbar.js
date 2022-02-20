@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav';
 import { AuthContext } from "../contexts/auth";
 import { UserContext } from "../contexts/userContext";
+import { FaPaw } from 'react-icons/fa';
 
 export default function NavbarComponent() {
     const { authTokens, setTokens } = useContext(AuthContext);
@@ -17,7 +18,7 @@ export default function NavbarComponent() {
     console.log(user)
     return <div>
         <Navbar expand="lg"  >
-            <Navbar.Brand><Link to="/"><span>Rehoming</span></Link>
+            <Navbar.Brand><Link to="/"><span><FaPaw /> Rehoming</span></Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
