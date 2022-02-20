@@ -3,14 +3,18 @@ import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav';
 import { AuthContext } from "../contexts/auth";
+import { UserContext } from "../contexts/userContext";
 
 export default function NavbarComponent() {
     const { authTokens, setTokens } = useContext(AuthContext);
+    const { user } = useContext(UserContext);
+
 
     function logout() {
         setTokens('');
     };
 
+    console.log(user)
     return <div>
         <Navbar expand="lg"  >
             <Navbar.Brand><Link to="/"><span>Rehoming</span></Link>
@@ -32,7 +36,7 @@ export default function NavbarComponent() {
                         </>
                     ) : (
                         <>
-                            {/* <Link to="">{username}</Link> */}
+                            <Link to="/">{user.username}</Link>
                             <Link to="/" onClick={logout}>Logout</Link>
                             {/* <Link to="/admin">Admin Page</Link> */}
                         </>

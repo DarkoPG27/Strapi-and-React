@@ -27,10 +27,22 @@
 }
 .nav-link:hover{
   border-bottom-color: rgba(255,255,255,0.7);
+  transition: ease-in-out 0.4s;
 }
 .nav-link.active {
   color: white;
   border-bottom-color:white;
+}
+div.dropdown-menu.show{
+  background: transparent;
+  padding: 0.25rem 0;
+  border-bottom: 0.25rem solid transparent;
+
+}
+a.dropdown-item:hover {
+  width:min-content;
+  background-color: transparent;
+  border-bottom: 0.25rem solid rgba(255,255,255,0.7) !important;
 }
 
 h1,h2,h3,h4{
@@ -68,6 +80,8 @@ h1,h2,h3,h4{
 .navbar a:hover {
  color:rgb(95, 140, 146)
 }
+
+
 
 /* NAVBAR */
 

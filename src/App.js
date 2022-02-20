@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AuthContextProvider } from "./contexts/auth";
+import { UserContextProvider } from "./contexts/userContext";
 import { PrivateRoute } from "./PrivateRoute";
 
 //components
@@ -19,30 +20,32 @@ import SiteHeader from './components/SiteHeader';
 
 function App() {
   return (
-    <AuthContextProvider>
-      <Router>
-        <div className="App">
-          <div className="content">
-            <Switch>
-              <Route exact path="/"><Home /></Route>
-              <Route path="/about"><NavbarComponent /> <About /></Route>
-              <Route path="/contact"><NavbarComponent /> <Contact /></Route>
-              <Route path="/pets"><NavbarComponent /> <SiteHeader /> <Pets /></Route>
-              <Route path="/details/:id"><NavbarComponent /> <SiteHeader /> <PetDetails /></Route>
-              <Route path="/category/:id"><NavbarComponent /> <Category /></Route>
-              <Route path="/login"><NavbarComponent /><Login /> </Route>
-              <Route path="/registration"><NavbarComponent /> <Register /></Route>
+    <UserContextProvider>
+      <AuthContextProvider>
+        <Router>
+          <div className="App">
+            <div className="content">
+              <Switch>
+                <Route exact path="/"><Home /></Route>
+                <Route path="/about"><NavbarComponent /> <About /></Route>
+                <Route path="/contact"><NavbarComponent /> <Contact /></Route>
+                <Route path="/pets"><NavbarComponent /> <SiteHeader /> <Pets /></Route>
+                <Route path="/details/:id"><NavbarComponent /> <SiteHeader /> <PetDetails /></Route>
+                <Route path="/category/:id"><NavbarComponent /> <Category /></Route>
+                <Route path="/login"><NavbarComponent /><Login /> </Route>
+                <Route path="/registration"><NavbarComponent /> <Register /></Route>
 
-              <PrivateRoute path="/admin" ><NavbarComponent /> <Dashboard /></PrivateRoute>
+                <PrivateRoute path="/admin"><NavbarComponent /> <Dashboard /></PrivateRoute>
 
-              {/*   <Route path="/admin"><Admin /></Route> */}
+                {/*   <Route path="/admin"><Admin /></Route> */}
 
 
-            </Switch>
+              </Switch>
+            </div>
           </div>
-        </div>
-      </Router>
-    </AuthContextProvider>
+        </Router>
+      </AuthContextProvider>
+    </UserContextProvider>
   );
 }
 

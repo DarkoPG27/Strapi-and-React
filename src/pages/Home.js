@@ -1,12 +1,16 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import { AuthContext } from "../contexts/auth";
+import { UserContext } from "../contexts/userContext";
+
 
 
 export default function Home() {
     const { authTokens, setTokens } = useContext(AuthContext);
+    const { user } = useContext(UserContext);
     function logout() {
         setTokens('');
     };
@@ -16,7 +20,7 @@ export default function Home() {
             <div className="cover-container d-flex w-100 p-3 mx-auto flex-column">
                 <header className="mb-auto">
 
-                    <Nav className="justify-content-center" activeKey="/home">
+                    <Nav className="justify-content-center me-auto " activeKey="/home">
                         {/* <Nav className="nav nav-masthead justify-content-end"> */}
 
                         <h3 className="justify-content-start mb-0">
@@ -44,13 +48,24 @@ export default function Home() {
                             </>
                         ) : (
                             <>
-                                {/* <Link to="">{username}</Link> */}
-                                <Nav.Item>
-                                    <Link className="nav-link" to="/" onClick={logout}>Logout</Link>
-                                </Nav.Item>
-                                {/*  <Nav.Item>
-                                    <Link className="nav-link" to="/admin">Admin Page</Link>
-                                </Nav.Item> */}
+                                <NavDropdown
+                                    title={user.username}
+                                    id="nav-dropdown">
+
+                                    <NavDropdown.Item
+
+                                        style={{
+                                            border: "none",
+                                            backgroundColor: "none"
+                                        }}
+                                        eventKey="">
+                                        <Link
+                                            style={{
+                                                textDecoration: "none",
+                                                color: "rgba(255, 255, 255, 0.7)"
+                                            }}
+                                            className="drop-item" to="/" onClick={logout}>Logout</Link></NavDropdown.Item>
+                                </NavDropdown>
                             </>
                         )}
                     </Nav>

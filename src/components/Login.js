@@ -15,6 +15,7 @@ import Container from "@material-ui/core/Container";
 import axios from "axios";
 import { AuthContext } from "../contexts/auth";
 import { Redirect } from "react-router-dom";
+import { UserContext } from "../contexts/userContext";
 
 function Copyright() {
     return (
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
     const { authTokens, setTokens } = useContext(AuthContext);
-    const [username, setUsername] = useState("");
+    const { user, setUser } = useContext(UserContext);
     const [formFields, setFormFields] = useState({
         identifier: "",
         password: "",
@@ -60,7 +61,6 @@ export default function SignIn() {
     const classes = useStyles();
 
     const handleChange = (event) => {
-        console.log(event.target.name, event.target.value)
         setFormFields({ ...formFields, [event.target.name]: event.target.value });
 
     };
@@ -72,17 +72,16 @@ export default function SignIn() {
             .then((result) => {
 
                 let { jwt, user } = result.data;
+                console.log(user);
                 console.log(jwt);
-                console.log(user.username);
                 setTokens(jwt);
-                setUsername(user.username);
+                setUser(user);
             })
             .catch((e) => {
                 console.log(e);
             });
     };
 
-    console.log(username)
     if (authTokens) {
         return <Redirect to="/"></Redirect>
     } else {
