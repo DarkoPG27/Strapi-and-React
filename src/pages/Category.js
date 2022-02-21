@@ -12,7 +12,7 @@ export default function Category() {
     const { loading, error, data } = useFetch('http://localhost:1337/categories/' + id);
 
 
-    if (loading) return <Spinner animation="border" role="status"></Spinner>
+    if (loading) return <div className='spinner'> <Spinner animation="grow" variant="secondary" role="status"></Spinner></div>
     if (error) return <p className='messages'>Error fetching data :(</p>
 
     console.log(data)

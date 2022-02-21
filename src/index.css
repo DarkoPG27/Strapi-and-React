@@ -4,6 +4,12 @@
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Home Page */
 .home{
   height: 100vh;
@@ -84,26 +90,6 @@ h1,h2,h3,h4{
 .navbar a:hover {
  color:rgb(95, 140, 146)
 }
-
-.navbar1 a{
-margin-right: 70px;
- text-decoration: none;
- color: #CA310E !important;
- }
-
- div.navbar1.nav-item.dropdown{
-  
-}
-
- .navbar1 a.dropdown-item{
-  
-  background-color: blue;
-  width: min-content;
-  border-bottom: 0.25rem solid #CA310E !important;
-  transition: ease-in-out 0.4s;
- }
-
-
 
 /* NAVBAR */
 

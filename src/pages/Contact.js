@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/esm/Col';
 export default function Contact() {
     const { loading, error, data } = useFetch('http://localhost:1337/contact')
 
-    if (loading) return <Spinner animation="border" role="status"></Spinner>
+    if (loading) return <div className='spinner'> <Spinner animation="grow" variant="secondary" role="status"></Spinner></div>
     if (error) return <p className='messages'>Error fetching data :(</p>
     console.log(data.contact_image.url)
     return (

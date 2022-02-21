@@ -7,7 +7,7 @@ export default function SiteHeader() {
 
     const { loading, error, data } = useFetch('http://localhost:1337/categories');
 
-    if (loading) return <p className='messages'>Loading...</p>
+    if (loading) return <p className='messages'></p>
     if (error) return <p className='messages'>Error fetching data :(</p>
     console.log(data)
     return (

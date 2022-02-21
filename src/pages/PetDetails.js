@@ -11,12 +11,10 @@ import Col from 'react-bootstrap/Col';
 import { FaPaw } from 'react-icons/fa';
 
 export default function PetDetails() {
-
     const { id } = useParams();
     const { loading, error, data } = useFetch('http://localhost:1337/pets/' + id);
     console.log(data)
-
-    if (loading) return <Spinner animation="border" role="status"></Spinner>
+    if (loading) return <div className='spinner'> <Spinner animation="grow" variant="secondary" role="status"></Spinner></div>
     if (error) return <p className='messages'>Error fetching data :(</p>
 
     return (
