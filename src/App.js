@@ -30,16 +30,11 @@ function App() {
                 <Route path="/about"><NavbarComponent /> <About /></Route>
                 <Route path="/contact"><NavbarComponent /> <Contact /></Route>
                 <Route path="/pets"><NavbarComponent /> <SiteHeader /> <Pets /></Route>
-                <Route path="/details/:id"><NavbarComponent /> <SiteHeader /> <PetDetails /></Route>
+                <Route path="/details/:id"><NavbarComponent /><PetDetails /></Route>
                 <Route path="/category/:id"><NavbarComponent /> <Category /></Route>
                 <Route path="/login"><NavbarComponent /><Login /> </Route>
                 <Route path="/registration"><NavbarComponent /> <Register /></Route>
-
                 <PrivateRoute path="/admin"><NavbarComponent /> <Dashboard /></PrivateRoute>
-
-                {/*   <Route path="/admin"><Admin /></Route> */}
-
-
               </Switch>
             </div>
           </div>

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function SiteHeader() {
 
@@ -12,13 +14,13 @@ export default function SiteHeader() {
     console.log(data)
     return (
         <div className="site-header">
-            {/*   <Link to="/" ><h1>Pets</h1></Link> */}
             <nav className='categories'>
                 <span>Filter pets by categories:</span>
-                <Link to={'/pets'} ><button>All Pets</button></Link>
                 {data.map(category => (
                     <Link key={category.id} to={`/category/${category.id}`} ><button>{category.name}</button></Link>
                 ))}
+
+
             </nav>
 
         </div>

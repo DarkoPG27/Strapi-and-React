@@ -9,15 +9,13 @@ import { FaPaw } from 'react-icons/fa';
 export default function NavbarComponent() {
     const { authTokens, setTokens } = useContext(AuthContext);
     const { user } = useContext(UserContext);
-
-
     function logout() {
         setTokens('');
     };
 
-    console.log(user)
+    /*   console.log(user) */
     return <div>
-        <Navbar expand="lg"  >
+        <Navbar expand="lg" sticky="top"  >
             <Navbar.Brand><Link to="/"><span><FaPaw /> Rehoming</span></Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

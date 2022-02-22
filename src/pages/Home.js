@@ -7,11 +7,10 @@ import { AuthContext } from "../contexts/auth";
 import { UserContext } from "../contexts/userContext";
 import { FaPaw } from 'react-icons/fa';
 
-
-
 export default function Home() {
     const { authTokens, setTokens } = useContext(AuthContext);
     const { user } = useContext(UserContext);
+
     function logout() {
         setTokens('');
     };
@@ -24,8 +23,8 @@ export default function Home() {
                     <Nav className="justify-content-center me-auto " activeKey="/home">
                         {/* <Nav className="nav nav-masthead justify-content-end"> */}
 
-                        <h3 className="justify-content-start mb-0">
-                            <FaPaw />  Rehoming</h3>
+                        <h2 className="justify-content-start mb-0">
+                            <FaPaw /> </h2>
                         <Nav.Item>
                             <Link className="nav-link active" to="/">Home</Link>
                         </Nav.Item>

@@ -17,6 +17,7 @@ import { AuthContext } from "../contexts/auth";
 import { Redirect } from "react-router-dom";
 import { UserContext } from "../contexts/userContext";
 
+
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -62,7 +63,6 @@ export default function SignIn() {
 
     const handleChange = (event) => {
         setFormFields({ ...formFields, [event.target.name]: event.target.value });
-
     };
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -70,7 +70,6 @@ export default function SignIn() {
         axios
             .post("http://localhost:1337/auth/local", formFields)
             .then((result) => {
-
                 let { jwt, user } = result.data;
                 console.log(user);
                 console.log(jwt);
@@ -146,7 +145,7 @@ export default function SignIn() {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <Link to={'/register'} variant="body2">
                                     {"Don't have an account? Sign Up"}
                                 </Link>
                             </Grid>
