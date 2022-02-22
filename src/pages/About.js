@@ -10,7 +10,7 @@ export default function About() {
 
     if (loading) return <div className='spinner'> <Spinner animation="grow" variant="secondary" role="status"></Spinner></div>
     if (error) return <p className='messages'>Error fetching data :(</p>
-    console.log(data.about_content)
+    console.log(data)
     return (
 
         <div className='about-page col-12 ' >
@@ -18,15 +18,24 @@ export default function About() {
             <Container>
                 <Row>
                     <Col className='col-2 ' >
-                        <img className='image-left' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREzZGhBntOhRgkol_FdruXML_tX07XjyLcaw&usqp=CAU" alt="" />
+                        <img className='image-left'
+                            src={data.img_left ?
+                                `http://localhost:1337${data.img_left.url}`
+                                : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREzZGhBntOhRgkol_FdruXML_tX07XjyLcaw&usqp=CAU'
+                            } />
+
+
                     </Col>
                     <Col className='about-paper col-8'>
                         <h2>We created Get Your Pet in response to a number: 2.5 million.</h2>
                         <p>{data.about_content}</p>
                     </Col>
                     <Col className='col-2'>
-                        <img className='image-right' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREzZGhBntOhRgkol_FdruXML_tX07XjyLcaw&usqp=CAU" alt="" />
-                    </Col>
+                        <img className='image-right'
+                            src={data.img_right ?
+                                `http://localhost:1337${data.img_right.url}`
+                                : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREzZGhBntOhRgkol_FdruXML_tX07XjyLcaw&usqp=CAU'
+                            } /></Col>
                 </Row>
                 <Row>
                     <Col className='team col-12'>
