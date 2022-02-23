@@ -12,7 +12,6 @@ import { mainListItems } from "./listItems";
 
 import { DashComponent } from "./DashComponent";
 import { PetForm } from "./PetForm";
-/* import { BlogsTable } from "./BlogsTable.js"; */
 
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 

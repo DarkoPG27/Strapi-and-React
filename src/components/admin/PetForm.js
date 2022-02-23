@@ -7,7 +7,8 @@ import axios from "axios";
 export const PetForm = () => {
 
 
-    const [formFields, setFormFields] = useState({ name: "", description: "", age: "" });
+    const [formFields, setFormFields] =
+        useState({ name: "", description: "", age: "" });
     const onFormFieldChange = (e) => {
         if (e.target.type == "file") {
             setFormFields({ ...formFields, [e.target.name]: e.target.files });

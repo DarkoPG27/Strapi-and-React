@@ -71,7 +71,7 @@ export default function PetDetails() {
                         </Col>
                     </Row>
                     <Col ><hr></hr>
-                        Posted by: {data.users_permissions_user.username}</Col>
+                        Posted by: {data.users_permissions_user ? data.users_permissions_user.username : "Admin"}</Col>
                     {authTokens && <Col ><hr></hr><h3>More Details:</h3> {data.description}</Col>}
                 </Col>
                 <Col md={6}>

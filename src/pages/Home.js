@@ -53,7 +53,6 @@ export default function Home() {
                                     id="nav-dropdown">
 
                                     <NavDropdown.Item
-
                                         style={{
                                             border: "none",
                                             backgroundColor: "none"
@@ -64,7 +63,14 @@ export default function Home() {
                                                 textDecoration: "none",
                                                 color: "rgba(255, 255, 255, 0.7)"
                                             }}
-                                            className="drop-item" to="/" onClick={logout}>Logout</Link></NavDropdown.Item>
+                                            className="drop-item" to="/" onClick={logout}>Logout</Link>
+                                    </NavDropdown.Item>
+                                    <NavDropdown.Item>
+                                        <Link className="drop-item" to="/addpet" style={{
+                                            textDecoration: "none",
+                                            color: "rgba(255, 255, 255, 0.7)"
+                                        }}>Add Pet</Link>
+                                    </NavDropdown.Item>
                                 </NavDropdown>
                             </>
                         )}

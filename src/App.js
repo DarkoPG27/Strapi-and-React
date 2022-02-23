@@ -17,6 +17,7 @@ import Pets from './pages/Pets';
 import PetDetails from './pages/PetDetails';
 import Category from './pages/Category';
 import SiteHeader from './components/SiteHeader';
+import { AddPets } from './pages/AddPets';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
                 <Route path="/category/:id"><NavbarComponent /> <Category /></Route>
                 <Route path="/login"><NavbarComponent /><Login /> </Route>
                 <Route path="/registration"><NavbarComponent /> <Register /></Route>
+                <PrivateRoute path="/addpet"><NavbarComponent /> <AddPets /> </PrivateRoute>
                 <PrivateRoute path="/admin"><NavbarComponent /> <Dashboard /></PrivateRoute>
               </Switch>
             </div>

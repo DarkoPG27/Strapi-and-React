@@ -26,7 +26,7 @@ export default function Pets() {
                     {console.log(pet)}
 
                     <Card.Body>
-                        <Card.Text >Posted by: {pet.users_permissions_user.username}</Card.Text>
+                        <Card.Text >Posted by: {pet.users_permissions_user ? pet.users_permissions_user.username : "Admin"}</Card.Text>
                         <Card.Text >{pet.description.substring(0, 100)}...</Card.Text>
                         <Link to={`/details/${pet.id}`}>Read more...</Link>
                     </Card.Body>
