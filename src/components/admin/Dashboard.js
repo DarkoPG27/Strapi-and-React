@@ -11,7 +11,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { mainListItems } from "./listItems";
 
 import { DashComponent } from "./DashComponent";
-import { PetForm } from "./PetForm";
+import { AddPets } from "../../pages/AddPets";
 
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 
@@ -141,7 +141,7 @@ export default function Dashboard() {
                     ></DashComponent>
                 </Route>
                 <Route path={[`${path}/addPet/:id`, `${path}/addPet`]}>
-                    <PetForm></PetForm>
+                    <AddPets />
                 </Route>
 
             </Switch>

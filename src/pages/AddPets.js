@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import { apiCall } from "../services/api";
-import axios from "axios";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/esm/Col';
@@ -16,20 +15,17 @@ export const AddPets = () => {
         } else {
             setFormFields({ ...formFields, [e.target.name]: e.target.value });
         }
-        // console.dir(e)
     };
 
     const onFormSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
-
         const fileFields = ["image", "galeryImages"];
         const data = {};
-
         Object.keys(formFields).map(function (key, index) {
             if (fileFields.includes(key)) {
 
-                console.log("odje file obraditi", formFields[key].length);
+                console.log("obradjivanje fajla", formFields[key].length);
                 if (formFields[key].length > 1) {
                     for (let i = 0; i < formFields[key].length; i++) {
                         const file = formFields[key][i];
@@ -55,6 +51,8 @@ export const AddPets = () => {
                 console.log(error);
             });
     };
+
+
 
     return (
         <div className="add-pet-page">
@@ -83,10 +81,6 @@ export const AddPets = () => {
                                     <option value="1">Dogs</option>
                                     <option value="2">Cats</option>
                                 </select>
-
-
-
-
                                 <label htmlFor="age">Age</label>
                                 <input
                                     required
