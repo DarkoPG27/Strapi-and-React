@@ -18,9 +18,8 @@ export default function Contact() {
             <div className='about-header'><h1>Contact Us</h1></div>
             <Container>
                 <Row>
-                    <Col className='col-2 ' >
+                    <Col className='col-2 '></Col>
 
-                    </Col>
                     <Col className='about-paper col-8'>
                         <img src={`http://localhost:1337${data.contact_image.url}`}
                             alt="contact_image"

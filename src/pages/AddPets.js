@@ -76,6 +76,16 @@ export const AddPets = () => {
                                     onChange={onFormFieldChange}
                                 />
 
+                                <select className="form-select" aria-label="select" name="category" required
+                                    value={formFields.category}
+                                    onChange={onFormFieldChange}>
+                                    <option defaultValue>Select category</option>
+                                    <option value="1">Dogs</option>
+                                    <option value="2">Cats</option>
+                                </select>
+
+
+
 
                                 <label htmlFor="age">Age</label>
                                 <input

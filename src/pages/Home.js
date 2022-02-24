@@ -51,7 +51,6 @@ export default function Home() {
                                 <NavDropdown
                                     title={user.username}
                                     id="nav-dropdown">
-
                                     <NavDropdown.Item
                                         style={{
                                             border: "none",

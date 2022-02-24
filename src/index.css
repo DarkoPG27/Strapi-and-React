@@ -421,23 +421,3 @@ align-items: center;
   justify-content: center;
   flex-direction: column;
 } 
-/* .add-pet-paper h2{
-  font-size: 2em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 50px;
-  color:#455173;
-  letter-spacing: 2px;
-} */
-
-/* .add-pet-paper p{
-  color: #757575;
-  padding: 0 50px;
-  word-spacing: 2px;
-  font-size: larger;
-  word-break: break-all;
-  font-weight: 0.1em;
-  padding-bottom: 50px;
-} */
