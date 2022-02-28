@@ -34,7 +34,7 @@ export default function PetDetails() {
                 <Col md={6}>
                     <Col > {
                         data.galeryImages.length > 1 ?
-                            (<Carousel className="d-block w-100 " >
+                            (<Carousel className="d-block w-100 carousel" >
                                 {data.galeryImages.map(i => {
                                     return <Carousel.Item key={i.hash} className="item" interval={3000}>
                                         <img
