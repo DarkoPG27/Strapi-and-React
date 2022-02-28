@@ -1,14 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button } from "@material-ui/core";
 import { useParams } from "react-router-dom";
 import { apiCall } from "../services/api";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/esm/Col';
+import { Redirect } from "react-router-dom";
+import { UserContext } from "../contexts/userContext";
+import { AuthContext } from "../contexts/auth";
+
 
 export const AddPets = () => {
+    const { user } = useContext(UserContext);
+    const { authTokens, setTokens } = useContext(AuthContext);
+    console.log(user.id)
     const [formFields, setFormFields] =
-        useState({ name: "", description: "", age: "", category: "", city: "", size: "", breeds: "", sex: "" });
+        useState({
+            name: "",
+            description: "",
+            age: "",
+            category: "",
+            city: "",
+            size: "",
+            breeds: "",
+            sex: "",
+            users_permissions_user: authTokens ? user.id : ""
+        });
+
     const onFormFieldChange = (e) => {
         if (e.target.type == "file") {
             setFormFields({ ...formFields, [e.target.name]: e.target.files });
@@ -16,15 +34,16 @@ export const AddPets = () => {
             setFormFields({ ...formFields, [e.target.name]: e.target.value });
         }
     };
-
+    const [isSubmited, setIsSubmited] = useState(false);
     const onFormSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
         const fileFields = ["image", "galeryImages"];
+
         const data = {};
+
         Object.keys(formFields).map(function (key, index) {
             if (fileFields.includes(key)) {
-
                 console.log("obradjivanje fajla", formFields[key].length);
                 if (formFields[key].length > 1) {
                     for (let i = 0; i < formFields[key].length; i++) {
@@ -50,108 +69,117 @@ export const AddPets = () => {
             .catch(function (error) {
                 console.log(error);
             });
+        setIsSubmited(true);
     };
 
+    if (isSubmited === true) {
+        return <Redirect to="/pets"></Redirect>
+    }
 
 
-    return (
-        <div className="add-pet-page">
-            <div className='add-pet-header'><h1>Add Pet</h1></div>
-            <Container>
-                <Row>
-                    <Col className='col-2 '></Col>
-                    <Col className='add-pet-paper col-8'>
-                        <form className="add-pet-form" onSubmit={onFormSubmit}>
-                            <h2>Pet info:</h2>
-                            <div>
-                                <label htmlFor="name">Name</label>
-                                <input
-                                    id="name"
-                                    type="text"
-                                    name="name"
-                                    required
-                                    value={formFields.name}
-                                    onChange={onFormFieldChange}
-                                />
+    else {
+        return (
 
-                                <select className="form-select" aria-label="select" name="category" required
-                                    value={formFields.category}
-                                    onChange={onFormFieldChange}>
-                                    <option defaultValue>Select category</option>
-                                    <option value="1">Dogs</option>
-                                    <option value="2">Cats</option>
-                                </select>
-                                <label htmlFor="age">Age</label>
-                                <input
-                                    required
-                                    id="age"
-                                    type="number"
-                                    name="age"
-                                    value={formFields.age}
-                                    onChange={onFormFieldChange}
-                                />
+            <div className="add-pet-page">
 
+                <div className='add-pet-header'><h1>Add Pet</h1></div>
+                <Container>
 
-                                <label htmlFor="description">Description</label>
-                                <input
-                                    required
-                                    id="description"
-                                    type="text"
-                                    name="description"
-                                    value={formFields.description}
-                                    onChange={onFormFieldChange}
-                                />
+                    <Row>
+                        <Col className='col-2 '></Col>
+                        <Col className='add-pet-paper col-8'>
+                            <form className="add-pet-form" onSubmit={onFormSubmit}>
+                                <h2>Pet info:</h2>
+                                <div>
+                                    <label htmlFor="name">Name</label>
+                                    <input
+                                        id="name"
+                                        type="text"
+                                        name="name"
+                                        required
+                                        value={formFields.name}
+                                        onChange={onFormFieldChange}
+                                    />
 
+                                    <select className="form-select" aria-label="select" name="category" required
+                                        value={formFields.category}
+                                        onChange={onFormFieldChange}>
+                                        <option defaultValue>Select category</option>
+                                        <option value="1">Dogs</option>
+                                        <option value="2">Cats</option>
+                                    </select>
+                                    <label htmlFor="age">Age</label>
+                                    <input
+                                        required
+                                        id="age"
+                                        type="number"
+                                        name="age"
+                                        value={formFields.age}
+                                        onChange={onFormFieldChange}
+                                    />
+                                    <label htmlFor="description">Description</label>
+                                    <input
+                                        required
+                                        id="description"
+                                        type="text"
+                                        name="description"
+                                        value={formFields.description}
+                                        onChange={onFormFieldChange}
+                                    />
+                                    <label htmlFor="size">Size</label>
+                                    <input
+                                        required
+                                        id="size"
+                                        type="text"
+                                        name="size"
+                                        value={formFields.size}
+                                        onChange={onFormFieldChange}
+                                    />
 
-                                <label htmlFor="size">Size</label>
-                                <input
-                                    required
-                                    id="size"
-                                    type="text"
-                                    name="size"
-                                    value={formFields.size}
-                                    onChange={onFormFieldChange}
-                                />
+                                    <label htmlFor="breeds">Breeds</label>
+                                    <input
+                                        required
+                                        id="breeds"
+                                        type="text"
+                                        name="breeds"
+                                        value={formFields.breeds}
+                                        onChange={onFormFieldChange}
+                                    />
 
-                                <label htmlFor="breeds">Breeds</label>
-                                <input
-                                    required
-                                    id="breeds"
-                                    type="text"
-                                    name="breeds"
-                                    value={formFields.breeds}
-                                    onChange={onFormFieldChange}
-                                />
+                                    <label htmlFor="sex">Sex</label>
+                                    <input
+                                        required
+                                        id="sex"
+                                        type="text"
+                                        name="sex"
+                                        value={formFields.sex}
+                                        onChange={onFormFieldChange}
+                                    />
 
-                                <label htmlFor="sex">Sex</label>
-                                <input
-                                    required
-                                    id="sex"
-                                    type="text"
-                                    name="sex"
-                                    value={formFields.sex}
-                                    onChange={onFormFieldChange}
-                                />
+                                    <label htmlFor="cover">Cover Image:</label>
+                                    <input id="cover" type="file" name="image" onChange={onFormFieldChange} />
 
-                                <label htmlFor="cover">Cover Image:</label>
-                                <input id="cover" type="file" name="image" onChange={onFormFieldChange} />
+                                    <label htmlFor="galeryImages">Gallery Images:</label>
+                                    <input
+                                        id="galeryImages"
+                                        type="file"
+                                        multiple
+                                        name="galeryImages"
+                                        onChange={onFormFieldChange}
+                                    />
+                                    <Button type="submit" variant="contained" color="primary">
+                                        Add Pet
+                                    </Button>
+                                </div>
+                            </form>
 
-                                <label htmlFor="galeryImages">Gallery Images:</label>
-                                <input
-                                    id="galeryImages"
-                                    type="file"
-                                    multiple
-                                    name="galeryImages"
-                                    onChange={onFormFieldChange}
-                                />
-                                <Button type="submit" variant="contained" color="primary">
-                                    Add Pet
-                                </Button>
-                            </div>
-                        </form>
-                    </Col>
-                </Row>
-            </Container>
-        </div >
-    );
+                        </Col>
+
+                    </Row>
+
+                </Container>
+
+            </div >
+        );
+    }
 };

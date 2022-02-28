@@ -38,7 +38,8 @@ export default function NavbarComponent() {
                             <Link to="/">{user.username}</Link>
                             <Link to="/addpet">Add Pet</Link>
                             <Link to="/" onClick={logout}>Logout</Link>
-                            {/* <Link to="/admin">Admin Page</Link> */}
+                            {/* {user.role.name === "Admin" && <Link to="/admin">Admin Page</Link>} */}
+                            {console.log(user)}
                         </>
                     )}
                 </Nav>

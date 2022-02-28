@@ -31,8 +31,8 @@ export default function Contact() {
                         <p>{data.contact_content}: <Link>  {data.contact_mail}</Link></p>
                     </Col>
                 </Row>
-                <Row>
-                    <Col> Footer</Col></Row>
+                {/*  <Row>
+                    <Col> Footer</Col></Row> */}
             </Container >
         </div >
     )

@@ -10,12 +10,10 @@ export const UserContextProvider = (props) => {
     const [user, setUser] = useState({
         blocked: false,
         confirmed: true,
-        createdAt: "2022-02-19T13:52:44.189Z",
-        email: "admin@admin.com",
-        id: 1,
+        email: "",
+        id: "",
         provider: "local",
-        updatedAt: "2022-02-19T13:52:44.189Z",
-        username: "Darko",
+        username: "",
     });
 
     return (

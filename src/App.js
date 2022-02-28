@@ -35,7 +35,7 @@ function App() {
                 <Route path="/category/:id"><NavbarComponent /> <Category /></Route>
                 <Route path="/login"><NavbarComponent /><Login /> </Route>
                 <Route path="/registration"><NavbarComponent /> <Register /></Route>
-                <PrivateRoute path="/addpet"><NavbarComponent /> <AddPets /> </PrivateRoute>
+                <Route path="/addpet"><NavbarComponent /> <AddPets /> </Route>
                 <PrivateRoute path="/admin"><NavbarComponent /> <Dashboard /></PrivateRoute>
               </Switch>
             </div>

@@ -50,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
 export default function SignIn() {
     const { authTokens, setTokens } = useContext(AuthContext);
     const { user, setUser } = useContext(UserContext);
@@ -67,14 +66,18 @@ export default function SignIn() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formFields);
+
         axios
             .post("http://localhost:1337/auth/local", formFields)
             .then((result) => {
+                console.log(result);
                 let { jwt, user } = result.data;
                 console.log(user);
                 console.log(jwt);
-                setTokens(jwt);
                 setUser(user);
+                setTokens(jwt);
+                console.log(user);
+
             })
             .catch((e) => {
                 console.log(e);
