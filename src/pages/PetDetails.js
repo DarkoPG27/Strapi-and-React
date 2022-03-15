@@ -89,7 +89,7 @@ export default function PetDetails() {
                                             Please enter a comment.
                                         </div>
                                     </Form.Group>
-                                    <Button type="submit">Post</Button>
+                                    <Button /* type="submit" */>Post</Button>
                                 </Form>
                                 {console.log(data)}
                                 <hr />

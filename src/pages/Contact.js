@@ -11,7 +11,7 @@ export default function Contact() {
 
     if (loading) return <div className='spinner'> <Spinner animation="grow" variant="secondary" role="status"></Spinner></div>
     if (error) return <p className='messages'>Error fetching data :(</p>
-    console.log(data.contact_image.url)
+    /* console.log(data.contact_image.url) */
     return (
 
         <div className='about-page col-12 ' >

@@ -88,7 +88,7 @@ export const AddPets = () => {
                     <Row>
                         <Col className='col-2 '></Col>
                         <Col className='add-pet-paper col-8'>
-                            <form className="add-pet-form" onSubmit={onFormSubmit}>
+                            <form className="add-pet-form" onSubmit={onFormSubmit} autoComplete="off">
                                 <h2>Pet info:</h2>
                                 <div>
                                     <label htmlFor="name">Name</label>

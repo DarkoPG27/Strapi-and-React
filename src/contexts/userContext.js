@@ -7,17 +7,16 @@ export function useCustomContext() {
 }
 
 export const UserContextProvider = (props) => {
-    const [user, setUser] = useState({
-        blocked: false,
-        confirmed: true,
-        email: "",
-        id: "",
-        provider: "local",
-        username: "",
-    });
+    const existingUser = localStorage.getItem("user");
+    const [user, setUser] = useState({ existingUser });
+
+    const setCurrentUser = (user) => {
+        localStorage.setItem("user", user);
+        setUser(user);
+    };
 
     return (
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext.Provider value={{ user, setCurrentUser }}>
             {props.children}
         </UserContext.Provider>
     );

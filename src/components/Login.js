@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
     const { authTokens, setTokens } = useContext(AuthContext);
-    const { user, setUser } = useContext(UserContext);
+    const { user, setCurrentUser } = useContext(UserContext);
     const [formFields, setFormFields] = useState({
         identifier: "",
         password: "",
@@ -74,10 +74,8 @@ export default function SignIn() {
                 let { jwt, user } = result.data;
                 console.log(user);
                 console.log(jwt);
-                setUser(user);
+                setCurrentUser(user);
                 setTokens(jwt);
-                console.log(user);
-
             })
             .catch((e) => {
                 console.log(e);
@@ -97,7 +95,7 @@ export default function SignIn() {
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <form className={classes.form} onSubmit={handleSubmit}>
+                    <form className={classes.form} onSubmit={handleSubmit} autoComplete="off">
                         <TextField
                             variant="outlined"
                             margin="normal"

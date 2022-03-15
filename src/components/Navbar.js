@@ -9,8 +9,10 @@ import { FaPaw } from 'react-icons/fa';
 export default function NavbarComponent() {
     const { authTokens, setTokens } = useContext(AuthContext);
     const { user } = useContext(UserContext);
+
     function logout() {
-        setTokens('');
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
     };
 
     /*   console.log(user) */
